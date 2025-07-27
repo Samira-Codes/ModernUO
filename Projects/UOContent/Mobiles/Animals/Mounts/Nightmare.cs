@@ -85,7 +85,20 @@ namespace Server.Mobiles
                         break;
                     }
             }
-
+            // 🎨 Hue rarity (flipped logic)
+            int roll = Utility.Random(1000); // 0–999
+            
+                if (5 > roll)
+                        Hue = Utility.RandomList(1482, 1499); // 0.5% chance: ultra rare
+                    else if (45 > roll)
+                        Hue = Utility.RandomList(1496, 2759); // 4.0% chance: uber rare
+                    else if (145 > roll)
+                        Hue = Utility.RandomList(2726, 2764, 2753); // 10.0% chance: rare
+                    else if (325 > roll)
+                        Hue = Utility.RandomList(1209, 2761, 2411); // 18.0% chance: common
+                    else
+                        Hue = 0; // 67.5% chance: default
+                        
             PackItem(new SulfurousAsh(Utility.RandomMinMax(3, 5)));
         }
 

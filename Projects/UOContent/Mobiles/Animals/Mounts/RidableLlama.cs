@@ -40,8 +40,28 @@ namespace Server.Mobiles
             Tamable = true;
             ControlSlots = 1;
             MinTameSkill = 29.1;
-        }
+            if (Utility.RandomDouble() < 0.01)
+            {
+                Name = "an energy llama";
+                Hue = 0x76; // Electric blue
+                MinTameSkill = 68.3;
 
+                // Swamp dragon–style stats
+                SetStr(150, 160);
+                SetDex(100, 130);
+                SetInt(6, 10);
+
+                SetHits(195, 247);
+                SetDamage(2, 6);
+
+                SetSkill(SkillName.MagicResist, 25.0, 40.0);
+                SetSkill(SkillName.Tactics, 50.0, 60.0);
+                SetSkill(SkillName.Wrestling, 50.0, 60.0);
+
+                VirtualArmor = 20;
+            }
+        }
+            
         public override int StepsMax => 2560;
         public override string CorpseName => "a llama corpse";
 

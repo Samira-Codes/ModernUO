@@ -41,6 +41,17 @@ namespace Server.Mobiles
             Tamable = true;
             ControlSlots = 3;
             MinTameSkill = 93.9;
+
+            int roll = Utility.Random(1000); // 0–999
+
+                if (10 > roll)
+                    Hue = Utility.RandomList(1181, 1179); // 1.0% chance: ultra rare
+                else if (110 > roll)
+                    Hue = Utility.RandomList(1148, 1365); // 10.0% chance: rare
+                else if (260 > roll)
+                    Hue = Utility.RandomList(1122); // 15.0% chance: common
+                else
+                    Hue = 0; // 74.0% chance: existing/default
         }
 
         public override string CorpseName => "a dragon corpse";

@@ -10,6 +10,23 @@ namespace Server.Mobiles
         {
             Body = 106;
             BaseSoundID = 362;
+            if (Utility.RandomDouble() < 0.05) // 5% chance to be tamable
+            {
+                Tamable = true;
+                ControlSlots = 4;
+                MinTameSkill = 98.7;
+            }
+            else
+            {
+                Tamable = false;
+            }
+            if (Tamable)
+            {
+                
+                Name = "a shadow wyrm (tamable)";
+            }
+
+
 
             SetStr(898, 1030);
             SetDex(68, 200);
@@ -41,6 +58,7 @@ namespace Server.Mobiles
             VirtualArmor = 70;
         }
 
+        
         public override string CorpseName => "a shadow wyrm corpse";
         public override string DefaultName => "a shadow wyrm";
         public override bool ReacquireOnMovement => true;

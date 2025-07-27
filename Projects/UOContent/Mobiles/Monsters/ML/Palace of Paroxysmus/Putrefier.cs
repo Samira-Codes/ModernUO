@@ -63,7 +63,7 @@ namespace Server.Mobiles
         }
         */
 
-        public override bool GivesMLMinorArtifact => true;
+        //public override bool GivesMLMinorArtifact => true;
         public override Poison HitPoison => Poison.Deadly; // Becomes Lethal with Paragon bonus
         public override int TreasureMapLevel => 5;
 

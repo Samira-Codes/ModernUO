@@ -12,26 +12,27 @@ namespace Server.Mobiles
         {
             BaseSoundID = 0x3F3;
 
-            SetStr(58, 100);
-            SetDex(56, 75);
-            SetInt(16, 30);
+            SetStr(201, 300);
+            SetDex(66, 85);
+            SetInt(61, 100);
 
-            SetHits(41, 54);
-            SetMana(0);
+            SetHits(121, 180);
 
-            SetDamage(3, 5);
+            SetDamage(3, 4);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistanceType.Physical, 75);
+            SetDamageType(ResistanceType.Poison, 25);
 
-            SetResistance(ResistanceType.Physical, 15, 25);
-            SetResistance(ResistanceType.Fire, 5, 10);
-            SetResistance(ResistanceType.Cold, 5, 10);
-            SetResistance(ResistanceType.Poison, 5, 10);
-            SetResistance(ResistanceType.Energy, 5, 10);
+            SetResistance(ResistanceType.Physical, 35, 40);
+            SetResistance(ResistanceType.Fire, 20, 30);
+            SetResistance(ResistanceType.Cold, 20, 40);
+            SetResistance(ResistanceType.Poison, 20, 30);
+            SetResistance(ResistanceType.Energy, 30, 40);
 
-            SetSkill(SkillName.MagicResist, 25.3, 40.0);
-            SetSkill(SkillName.Tactics, 29.3, 44.0);
-            SetSkill(SkillName.Wrestling, 35.1, 45.0);
+            SetSkill(SkillName.Anatomy, 45.1, 55.0);
+            SetSkill(SkillName.MagicResist, 45.1, 55.0);
+            SetSkill(SkillName.Tactics, 45.1, 55.0);
+            SetSkill(SkillName.Wrestling, 45.1, 55.0);
 
             Fame = 300;
             Karma = 0;
@@ -39,6 +40,19 @@ namespace Server.Mobiles
             Tamable = true;
             ControlSlots = 1;
             MinTameSkill = 83.1;
+
+            int roll = Utility.Random(1000); // 0–999
+            
+                if (5 > roll)
+                        Hue = Utility.RandomList(1482, 1499); // 0.5% chance: ultra rare
+                    else if (45 > roll)
+                        Hue = Utility.RandomList(1496, 2759); // 4.0% chance: uber rare
+                    else if (145 > roll)
+                        Hue = Utility.RandomList(2726, 2764, 2753); // 10.0% chance: rare
+                    else if (325 > roll)
+                        Hue = Utility.RandomList(1209, 2761, 2411); // 18.0% chance: common
+                    else
+                        Hue = 0; // 67.5% chance: default
         }
 
         public override int StepsMax => 4480;

@@ -10,7 +10,18 @@ namespace Server.Mobiles
         {
             Body = Utility.RandomBool() ? 180 : 49;
             BaseSoundID = 362;
+            
+            int roll = Utility.Random(1000); // 0–999
 
+                if (5 > roll)
+                    Hue = 290; // 0.5% chance: ultra rare (white/gold glow)
+                else if (20 > roll)
+                    Hue = 1151; // 1.5% chance: uber rare (bright aura)
+                else if (100 > roll)
+                    Hue = 1150; // 8.0% chance: rare (tinted wyrm)
+                else
+                    Hue = 0; // 90.0% chance: normal white wyrm
+                    
             SetStr(721, 760);
             SetDex(101, 130);
             SetInt(386, 425);

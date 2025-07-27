@@ -12,6 +12,18 @@ namespace Server.Mobiles
         public FireSteed() : base(0xBE, 0x3E9E, AIType.AI_Melee)
         {
             BaseSoundID = 0xA8;
+            int roll = Utility.Random(1000); // 0–999
+
+                if (5 > roll)
+                    Hue = 2771; // 0.5% chance: ultra rare
+                else if (20 > roll)
+                    Hue = 1360; // 1.5% chance: uber rare
+                else if (100 > roll)
+                    Hue = Utility.RandomList(1359, 1257); // 8.0% chance: rare
+                else if (300 > roll)
+                    Hue = 1128; // 20.0% chance: common
+                else
+                    Hue = 0; // 70.0% chance: default
 
             SetStr(376, 400);
             SetDex(91, 120);

@@ -45,11 +45,11 @@ namespace Server.Mobiles
         public override string CorpseName => "a Grobu corpse";
         public override string DefaultName => "Grobu";
 
-        public override bool GivesMLMinorArtifact => true;
+        //public override bool GivesMLMinorArtifact => true;
 
         public override void GenerateLoot()
         {
-            AddLoot(LootPack.FilthyRich, 2);
+            AddLoot(LootPack.FilthyRich, 4);
         }
 
         public override void OnDeath(Container c)
